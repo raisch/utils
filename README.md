@@ -51,28 +51,34 @@ Lodash is extended with:
 - isNonEmptyObject(obj)
     - shorthand for `_.isPlainObject(obj) && !_.isEmpty(obj)`
 
-- setProps(target,props) - sets properties from props on target, as in:
-    - for each key in props
-        + delete target[key]
-        + target['_'+key] = props[key]
-        + adds new 'key' getter and setter to target
+- setProps(target,...list) - sets properties from props on target, as in:
+    + for each props in list
+        - for each key in props
+            + delete target[key]
+            + target['_'+key] = props[key]
+            + adds new 'key' getter and setter to target
+    + return target
 
 For example:
 
 ```
+const defaults={ 
+  b: false 
+};
+
 class Foo {
-    constructor(opts) {
-        _.setProps(this,opts)
-    }
+  constructor(opts) {
+    _.setProps(this,defaults,opts);
+  }
 }
 
-let f = new Foo({a:1,isFoo:true});
+let f = new Foo({ a:1, isFoo:true });
 
 f.a     // returns 1
 f.a=32
 f.a     // returns 32
 
-stringify(f) // returns {_a:32}
+stringify(f) // returns '{"_b":false,"_a":32,"_isFoo":true}'
 ```
 
 ### Custom Functions
