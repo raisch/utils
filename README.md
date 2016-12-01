@@ -77,12 +77,17 @@ stringify(f) // returns {_a:32}
 
 ### Custom Functions
 
-- `defineCustomError(name, fmt=defineCustomError.FORMAT)` - creates custom error classes.
-    - `defineCustomError.FORMAT`
+- `defineCustomError(name, fmt=defineCustomError.FORMAT)`
+    - Factory function used to create new error classes
+        + `defineCustomError.FORMAT` - default output format: `${msg}\n\t${stack}`
 
-- `debug(...args)` - simple debugging output
-    - `debug.DEBUGGING`
-    - `debug.DATEMASK`
+- `debug(...args)`
+    - Provides simple debugging output
+        + args are the same as `util.format`
+        + `debug.DEBUGGING` if true, debug messages are printed to console.log
+        + `debug.DATEMASK` - default date format: `hhMMss.l`
+        + see [dateformat](https://www.npmjs.com/package/dateformat)
 
-- `unload(path)` - allows required modules to be reloaded.
+- `unload(path)`
+    - Allows required modules to be reloaded - EXPERIMENTAL
 
