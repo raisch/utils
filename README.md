@@ -51,12 +51,12 @@ Lodash is extended with:
 
 ### Custom Functions
 
-`defineCustomError(name, fmt=defineCustomError.FORMAT)`
-`defineCustomError.FORMAT`
+- `defineCustomError(name, fmt=defineCustomError.FORMAT)`
+    - `defineCustomError.FORMAT`
 
-`debug(...args)`
-`debug.DEBUGGING`
-`debug.DATEMASK`
+- `debug(...args)`
+    - `debug.DEBUGGING`
+    - `debug.DATEMASK`
 
-`unload(path)`
+- `unload(path)`
 
